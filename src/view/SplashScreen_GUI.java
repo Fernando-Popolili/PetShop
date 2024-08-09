@@ -48,7 +48,7 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
 
         jLabel1.setText("Carregando");
         panelImage1.add(jLabel1);
-        jLabel1.setBounds(150, 110, 60, 20);
+        jLabel1.setBounds(140, 110, 70, 20);
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
