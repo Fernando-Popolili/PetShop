@@ -18,6 +18,8 @@ public class Login_GUI extends javax.swing.JFrame {
      */
     public Login_GUI() {
         initComponents();
+        
+        msg_login.setVisible(false);
     }
 
     /**
@@ -40,6 +42,7 @@ public class Login_GUI extends javax.swing.JFrame {
         nome_usuario = new javax.swing.JTextField();
         btn_login = new java.awt.Button();
         senha_txt = new javax.swing.JPasswordField();
+        msg_login = new javax.swing.JLabel();
         btn_fechar = new javax.swing.JButton();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
 
@@ -105,6 +108,10 @@ public class Login_GUI extends javax.swing.JFrame {
         panelNice2.add(senha_txt);
         senha_txt.setBounds(70, 112, 120, 30);
 
+        msg_login.setText("Login realizado com sucesso!");
+        panelNice2.add(msg_login);
+        msg_login.setBounds(27, 40, 170, 16);
+
         jPanel1.add(panelNice2);
         panelNice2.setBounds(100, 50, 210, 230);
 
@@ -164,7 +171,7 @@ public class Login_GUI extends javax.swing.JFrame {
         
         if(login.equals("admin") && senha.equalsIgnoreCase("admin123") ){
             //ignoreCase = ignora se é maiusculo ou minusculo
-            
+            msg_login.setVisible(true);
             JOptionPane.showMessageDialog(null, "Seja bem vindo!");
             System.exit(0);
         }else{
@@ -216,6 +223,7 @@ public class Login_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel msg_login;
     private javax.swing.JTextField nome_usuario;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
