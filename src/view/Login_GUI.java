@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fpopo
@@ -36,8 +38,8 @@ public class Login_GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         nome_usuario = new javax.swing.JTextField();
-        senha_usuario = new javax.swing.JTextField();
         btn_login = new java.awt.Button();
+        senha_txt = new javax.swing.JPasswordField();
         btn_fechar = new javax.swing.JButton();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
 
@@ -89,20 +91,19 @@ public class Login_GUI extends javax.swing.JFrame {
         panelNice2.add(nome_usuario);
         nome_usuario.setBounds(70, 70, 120, 30);
 
-        senha_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senha_usuarioActionPerformed(evt);
-            }
-        });
-        panelNice2.add(senha_usuario);
-        senha_usuario.setBounds(70, 110, 120, 30);
-
         btn_login.setActionCommand("Entrar");
         btn_login.setBackground(new java.awt.Color(232, 231, 234));
         btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_login.setLabel("Entrar");
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
         panelNice2.add(btn_login);
         btn_login.setBounds(130, 160, 57, 24);
+        panelNice2.add(senha_txt);
+        senha_txt.setBounds(70, 112, 120, 30);
 
         jPanel1.add(panelNice2);
         panelNice2.setBounds(100, 50, 210, 230);
@@ -148,10 +149,6 @@ public class Login_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void senha_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha_usuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senha_usuarioActionPerformed
-
     private void btn_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fecharActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btn_fecharActionPerformed
@@ -159,6 +156,22 @@ public class Login_GUI extends javax.swing.JFrame {
     private void nome_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nome_usuarioActionPerformed
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        String login = nome_usuario.getText();
+        String senha = senha_txt.getText();
+        
+        
+        if(login.equals("admin") && senha.equalsIgnoreCase("admin123") ){
+            //ignoreCase = ignora se é maiusculo ou minusculo
+            
+            JOptionPane.showMessageDialog(null, "Seja bem vindo!");
+            System.exit(0);
+        }else{
+            JOptionPane.showMessageDialog(null, "Senha ou Login inválidos");
+        }
+        
+    }//GEN-LAST:event_btn_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,6 +221,6 @@ public class Login_GUI extends javax.swing.JFrame {
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private javax.swing.JTextField senha_usuario;
+    private javax.swing.JPasswordField senha_txt;
     // End of variables declaration//GEN-END:variables
 }

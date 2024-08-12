@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author fpopo
@@ -16,6 +19,60 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
      */
     public SplashScreen_GUI() {
         initComponents();
+        
+        
+        //-->Inicio do Splash
+        
+        new Thread(){
+        
+            public void run() {
+        
+        
+            for (int i=0; i<101; i++){
+                        try {
+                            sleep(60); 
+
+                            barra.setValue(i);
+
+                            if(barra.getValue() == 10){
+
+                                mess.setText("Fazendo a conexao com o banco de dados");
+
+                                sleep(2000);
+
+
+                            }else if (barra.getValue() <=30){
+                                mess.setText("Carregando o sistema");
+                              sleep(100);  
+                            } else if (barra.getValue() <=99){
+                                mess.setText("Carregamento quase completo");
+
+                            }else{
+                                mess.setText("Carregamento completo. Seu programa sera iniciado.");
+
+                            sleep(3000);
+
+                            new Login_GUI().setVisible(true);
+                            dispose();
+                            }
+
+
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(SplashScreen_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+
+
+
+                    }        
+                }
+        
+            }.start();
+        
+    
+        
+        
+        //--> Fim do Splash
     }
 
     /**
@@ -29,9 +86,8 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        panelImage2 = new org.edisoncor.gui.panel.PanelImage();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        barra = new javax.swing.JProgressBar();
+        mess = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -41,23 +97,14 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bg.jpg"))); // NOI18N
         panelImage1.setLayout(null);
 
-        panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/loading.gif"))); // NOI18N
-        panelImage2.setLayout(null);
-        panelImage1.add(panelImage2);
-        panelImage2.setBounds(220, 110, 20, 20);
+        barra.setStringPainted(true);
+        panelImage1.add(barra);
+        barra.setBounds(120, 140, 160, 20);
 
-        jLabel1.setText("Carregando");
-        panelImage1.add(jLabel1);
-        jLabel1.setBounds(140, 110, 70, 20);
-
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        panelImage1.add(jButton1);
-        jButton1.setBounds(303, 10, 90, 30);
+        mess.setAlignment(java.awt.Label.CENTER);
+        mess.setBackground(new java.awt.Color(255, 255, 255));
+        panelImage1.add(mess);
+        mess.setBounds(40, 110, 310, 20);
 
         jPanel1.add(panelImage1);
         panelImage1.setBounds(0, 0, 400, 300);
@@ -76,10 +123,6 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(400, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Login_GUI().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,10 +160,9 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar barra;
     private javax.swing.JPanel jPanel1;
+    private java.awt.Label mess;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelImage panelImage2;
     // End of variables declaration//GEN-END:variables
 }
