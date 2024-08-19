@@ -8,6 +8,10 @@ package view;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import view.agenda.Adicionar_GUI;
+import view.agenda.Alterar_GUI;
+import view.agenda.Consulta_GUI;
+import view.agenda.Excluir_GUI;
 
 /**
  *
@@ -37,14 +41,18 @@ public class Menu_GUI extends javax.swing.JFrame {
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        cadastro_btn = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        alterar = new javax.swing.JMenuItem();
-        Excluir_btn = new javax.swing.JMenuItem();
-        relatorio_btn = new javax.swing.JMenuItem();
+        consulta_agenda = new javax.swing.JMenuItem();
+        Add_agenda = new javax.swing.JMenuItem();
+        alterar_agenda = new javax.swing.JMenuItem();
+        excluir_agenda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         calc_btn = new javax.swing.JMenuItem();
         bloc_btn = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         help_btn = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -67,33 +75,45 @@ public class Menu_GUI extends javax.swing.JFrame {
         getContentPane().add(panel1);
         panel1.setBounds(0, -20, 400, 300);
 
-        jMenu1.setText("Produtos");
+        jMenu1.setText("Agenda");
 
-        cadastro_btn.setText("Cadastrar");
-        jMenu1.add(cadastro_btn);
-
-        jMenuItem1.setText("Consultar");
-        jMenu1.add(jMenuItem1);
-
-        alterar.setText("Alterar");
-        jMenu1.add(alterar);
-
-        Excluir_btn.setText("Excluir");
-        Excluir_btn.addActionListener(new java.awt.event.ActionListener() {
+        consulta_agenda.setText("Consultar");
+        consulta_agenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Excluir_btnActionPerformed(evt);
+                consulta_agendaActionPerformed(evt);
             }
         });
-        jMenu1.add(Excluir_btn);
+        jMenu1.add(consulta_agenda);
 
-        relatorio_btn.setText("Relatorio");
-        jMenu1.add(relatorio_btn);
+        Add_agenda.setText("Adicionar");
+        Add_agenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Add_agendaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Add_agenda);
+
+        alterar_agenda.setText("Alterar");
+        alterar_agenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterar_agendaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(alterar_agenda);
+
+        excluir_agenda.setText("Excluir");
+        excluir_agenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluir_agendaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(excluir_agenda);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ferramentas");
+        jMenu2.setText("Paciente");
 
-        calc_btn.setText("Calculadora");
+        calc_btn.setText("Cadastrar");
         calc_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calc_btnActionPerformed(evt);
@@ -101,7 +121,7 @@ public class Menu_GUI extends javax.swing.JFrame {
         });
         jMenu2.add(calc_btn);
 
-        bloc_btn.setText("Bloco de Notas");
+        bloc_btn.setText("Consultar");
         bloc_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bloc_btnActionPerformed(evt);
@@ -109,7 +129,23 @@ public class Menu_GUI extends javax.swing.JFrame {
         });
         jMenu2.add(bloc_btn);
 
+        jMenuItem2.setText("Alterar");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu6.setText("Consulta");
+
+        jMenuItem1.setText("Cadastrar");
+        jMenu6.add(jMenuItem1);
+
+        jMenuItem6.setText("Historico");
+        jMenu6.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu6);
+
+        jMenu5.setText("History log");
+        jMenuBar1.add(jMenu5);
 
         jMenu4.setText("Help");
 
@@ -154,24 +190,28 @@ public class Menu_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_help_btnActionPerformed
 
     private void bloc_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloc_btnActionPerformed
-        try {
-            Runtime.getRuntime().exec("cmd.exe /c start notepad.exe");
-        } catch (IOException ex) {
-            Logger.getLogger(Menu_GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_bloc_btnActionPerformed
 
     private void calc_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calc_btnActionPerformed
-        try {
-            Runtime.getRuntime().exec("cmd.exe /c start calc.exe");
-        } catch (IOException ex) {
-            Logger.getLogger(Menu_GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_calc_btnActionPerformed
 
-    private void Excluir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Excluir_btnActionPerformed
+    private void consulta_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulta_agendaActionPerformed
+        new Consulta_GUI().setVisible(true);
+    }//GEN-LAST:event_consulta_agendaActionPerformed
+
+    private void Add_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_agendaActionPerformed
+        new Adicionar_GUI().setVisible(true);
+    }//GEN-LAST:event_Add_agendaActionPerformed
+
+    private void alterar_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterar_agendaActionPerformed
+        new Alterar_GUI().setVisible(true);
+    }//GEN-LAST:event_alterar_agendaActionPerformed
+
+    private void excluir_agendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluir_agendaActionPerformed
+        new Excluir_GUI().setVisible(true);
+    }//GEN-LAST:event_excluir_agendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,23 +249,27 @@ public class Menu_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Add_agenda;
     private javax.swing.JMenuItem Encerrar_btn;
-    private javax.swing.JMenuItem Excluir_btn;
-    private javax.swing.JMenuItem alterar;
+    private javax.swing.JMenuItem alterar_agenda;
     private javax.swing.JMenuItem bloc_btn;
-    private javax.swing.JMenuItem cadastro_btn;
     private javax.swing.JMenuItem calc_btn;
+    private javax.swing.JMenuItem consulta_agenda;
+    private javax.swing.JMenuItem excluir_agenda;
     private javax.swing.JMenuItem help_btn;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem6;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private javax.swing.JMenuItem relatorio_btn;
     // End of variables declaration//GEN-END:variables
 }
