@@ -5,13 +5,9 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author fpopo
- */
 public class Login_GUI extends javax.swing.JFrame {
+    
 
     /**
      * Creates new form Login_GUI
@@ -108,9 +104,10 @@ public class Login_GUI extends javax.swing.JFrame {
         panelNice2.add(senha_txt);
         senha_txt.setBounds(70, 112, 120, 30);
 
+        msg_login.setForeground(new java.awt.Color(0, 153, 0));
         msg_login.setText("Login realizado com sucesso!");
         panelNice2.add(msg_login);
-        msg_login.setBounds(27, 40, 170, 16);
+        msg_login.setBounds(30, 40, 170, 14);
 
         jPanel1.add(panelNice2);
         panelNice2.setBounds(100, 50, 210, 230);
@@ -165,18 +162,8 @@ public class Login_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_nome_usuarioActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        String login = nome_usuario.getText();
-        String senha = senha_txt.getText();
-        
-        
-        if(login.equals("admin") && senha.equalsIgnoreCase("admin123") ){
-            //ignoreCase = ignora se é maiusculo ou minusculo
-            msg_login.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Seja bem vindo!");
-            System.exit(0);
-        }else{
-            JOptionPane.showMessageDialog(null, "Senha ou Login inválidos");
-        }
+       Model.Login_DAO.verificacaoLogin();
+       dispose();
         
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -223,12 +210,12 @@ public class Login_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel msg_login;
-    private javax.swing.JTextField nome_usuario;
+    public static javax.swing.JLabel msg_login;
+    public static javax.swing.JTextField nome_usuario;
     private org.edisoncor.gui.panel.Panel panel1;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     private org.edisoncor.gui.panel.PanelNice panelNice1;
     private org.edisoncor.gui.panel.PanelNice panelNice2;
-    private javax.swing.JPasswordField senha_txt;
+    public static javax.swing.JPasswordField senha_txt;
     // End of variables declaration//GEN-END:variables
 }

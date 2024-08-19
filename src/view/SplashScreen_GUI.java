@@ -102,7 +102,7 @@ public class SplashScreen_GUI extends javax.swing.JFrame {
         barra.setBounds(120, 140, 160, 20);
 
         mess.setAlignment(java.awt.Label.CENTER);
-        mess.setBackground(new java.awt.Color(255, 255, 255));
+        mess.setBackground(new java.awt.Color(248, 249, 249));
         panelImage1.add(mess);
         mess.setBounds(40, 110, 310, 20);
 
